@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<!-- Hero section start -->
+<section class="bg-white dark:bg-gray-900">
+    <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 md:mx-20">
+        <div class="mr-auto place-self-center lg:col-span-7">
+            <h1
+                class="max-w-2xl mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl dark:text-white">
+                ELEVATE THE ADVENTURE</h1>
+            <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400"> Trucks
+                are also designed to handle tough driving conditions. They often have powerful engines and durable
+                suspension systems that allow them to navigate rough roads and steep inclines. In addition, many trucks
+                are equipped with features like four-wheel drive, which can provide added traction and stability in
+                challenging conditions.</p>
+
+        </div>
+        <div class="hidden  lg:mt-0 lg:col-span-5 lg:flex">
+            <img src="{% static 'images/hero-truck.jpg' %}" alt="mockup" class="rounded-xl ">
+        </div>
+    </div>
+</section>
+<!-- Hero section end -->
+
+<!-- truck section end -->
+
+<section class=" body-font">
+    <h1 class="text-center text-5xl font-bold pt-10">Choose Your Trucks </h1>
+    <div class="container px-5 py-24 mx-auto">
+        <div class="flex flex-wrap -m-4">
+
+            {% for t in truck %}
+
+            <div class="lg:w-1/4 md:w-1/2 p-4 w-full cursor-pointer">
+                <a class="block relative h-48 rounded overflow-hidden">
+                    <img alt="ecommerce" class="object-cover object-center w-full h-full block"
+                        src="{{t.truck_image.url}}">
+                </a>
+                <a href="#">
+                    <div class="mt-4">
+                        <p class="text-gray-500 text-xs tracking-widest title-font mb-1">YEAR: {{t.year}}</p>
+                        <h2 class="text-gray-900 title-font text-lg font-medium"> {{t.mode_name}}</h2>
+                        <p class="text-gray-500 text-xs tracking-widest title-font mb-1">PRICE: {{t.price}}</p>
+                    </div>
+                </a>
+            </div>
+
+
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!-- truck section end -->
+
+{% endblock content %}
