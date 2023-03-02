@@ -1,0 +1,13 @@
+node_modules
+env
+apps/__pycache__
+bike/__pycache__
+car/__pycache__
+contact/__pycache__
+home/__pycache__
+spareParts/__pycache__
+truck/__pycache__
+users/__pycache__
+static/src/output.css
+static/CACHE
+db.sqlite3
