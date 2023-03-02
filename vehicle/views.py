@@ -17,3 +17,18 @@ def bikePage(request):
 def carPage(request):
     car = Cars.objects.all()
     return render(request, 'car.html', context={'cars': car})
+
+
+def carDetails(request, pk):
+    details = Cars.objects.get(id=pk)
+    return render(request, 'carDetails.html', context={'details': details})
+
+
+def truckDetails(request, pk):
+    details = Trucks.objects.get(id=pk)
+    return render(request, 'truckDetails.html', context={'details': details})
+
+
+def bikeDetails(request, pk):
+    details = Bikes.objects.get(id=pk)
+    return render(request, 'bikeDetails.html', context={'details': details})
