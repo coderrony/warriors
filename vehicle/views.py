@@ -1,22 +1,29 @@
 from django.shortcuts import render
-
 from .models import Trucks, Bikes, Cars
+
+from .utils import paginationProject
 # Create your views here.
 
 
 def trucks(request):
     truck = Trucks.objects.all()
-    return render(request, 'trucks.html', context={"truck": truck})
+    custom_range, projects = paginationProject(request, truck, 1)
+
+    return render(request, "trucks.html", context={'projects': projects, 'custom': custom_range})
 
 
 def bikePage(request):
+
     bike = Bikes.objects.all()
-    return render(request, 'bike.html', context={'bikes': bike})
+    custom_range, projects = paginationProject(request, bike, 1)
+
+    return render(request, "bike.html", context={'projects': projects, 'custom': custom_range})
 
 
 def carPage(request):
     car = Cars.objects.all()
-    return render(request, 'car.html', context={'cars': car})
+    custom_range, projects = paginationProject(request, car, 1)
+    return render(request, 'car.html', context={'projects': projects, 'custom': custom_range})
 
 
 def carDetails(request, pk):
