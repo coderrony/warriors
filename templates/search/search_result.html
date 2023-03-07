@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+
+<h1 class="text-center text-3xl font-bold pt-10">Search Result ...</h1>
+
+<div class="">
+  {% if bike_list %}
+  {% for bike in bike_list %}
+  <section class=" body-font">
+    <div class="container px-5 py-24 mx-auto">
+      <div class="flex flex-wrap -m-4">
+        <div class="lg:w-1/4 md:w-1/2 p-4 w-full cursor-pointer">
+          <a class="block relative h-48 rounded overflow-hidden">
+            <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="{{bike.bike_image.url}}">
+          </a>
+          <a href="#">
+            <div class="mt-4">
+              <p class="text-gray-500 text-xs tracking-widest title-font mb-1">YEAR: {{bike.year}}</p>
+              <h2 class="text-gray-900 title-font text-lg font-medium"> {{bike.mode_name}}</h2>
+              <p class="text-gray-500 text-xs tracking-widest title-font mb-1">PRICE: {{bike.price}}</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endfor %}
+  {% endif %}
+
+
+  {% if car_list %}
+  {% for car in car_list %}
+  <section class=" body-font">
+    <div class="container px-5 py-24 mx-auto">
+      <div class="flex flex-wrap -m-4">
+        <div class="lg:w-1/4 md:w-1/2 p-4 w-full cursor-pointer">
+          <a class="block relative h-48 rounded overflow-hidden">
+            <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="{{car.car_image.url}}">
+          </a>
+          <a href="#">
+            <div class="mt-4">
+              <p class="text-gray-500 text-xs tracking-widest title-font mb-1">YEAR: {{car.year}}</p>
+              <h2 class="text-gray-900 title-font text-lg font-medium"> {{car.mode_name}}</h2>
+              <p class="text-gray-500 text-xs tracking-widest title-font mb-1">PRICE: {{car.price}}</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endfor %}
+  {% endif %}
+
+
+  {% if truck_list %}
+  {% for car in truck_list %}
+  <section class=" body-font">
+    <div class="container px-5 py-24 mx-auto">
+      <div class="flex flex-wrap -m-4">
+        <div class="lg:w-1/4 md:w-1/2 p-4 w-full cursor-pointer">
+          <a class="block relative h-48 rounded overflow-hidden">
+            <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="{{car.truck_image.url}}">
+          </a>
+          <a href="#">
+            <div class="mt-4">
+              <p class="text-gray-500 text-xs tracking-widest title-font mb-1">YEAR: {{car.year}}</p>
+              <h2 class="text-gray-900 title-font text-lg font-medium"> {{car.mode_name}}</h2>
+              <p class="text-gray-500 text-xs tracking-widest title-font mb-1">PRICE: {{car.price}}</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endfor %}
+  {% endif %}
+
+
+</div>
+
+
+
+
+
+
+{% if not bike_list and not car_list and not truck_list %}
+<p class="text-center text-2xl font-bold pt-10">No Result Found. </p>
+{% endif %}
+
+
+{% endblock content %}
